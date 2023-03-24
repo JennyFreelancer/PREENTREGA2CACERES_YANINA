@@ -39,7 +39,7 @@
                     <option value='egreso'>-</option>
                 </select>
                 <input type='text' class='agregar_descripcion'
-                placeholder='Agregar Descripcion' id='descripcion'/>
+                placeholder='Agregar Descripcion' id='descripcion' />
                 <input type='number' class='agregar_valor'
                 placeholder='Valor' id='valor' step='any'/>
                 <button class='agregar_btn' onclick='agregarDato()'>
@@ -51,7 +51,12 @@
 
     <div class="contenedor limpiarEstilos">
         <div class="ingreso">
-            <h2 class="ingreso_titulo">Ingresos</h2>
+            <div>
+                <h2 class="ingreso_titulo">Ingresos</h2>
+                <label for="filter-ingresos">Filtro</label>
+                <input type="text" oninput='filterChange()' placeholder="filtrar" id="filter-ingresos">
+                <button onclick='sortIngresos()'>Ordenar</button>
+            </div>
             <div id="lista-ingresos">
                 <div class="elemento limpiarEstilos">
                         <div class="elemento_descripcion">Salario</div>
@@ -60,7 +65,7 @@
                             <div class="elemento_eliminar">
                                 <button class="elemento_eliminar--btn">
                                     <ion-icon name="close-circle-outline"></ion-icon>
-                                </button> 
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -71,7 +76,7 @@
                                 <div class="elemento_eliminar">
                                     <button class="elemento_eliminar--btn">
                                         <ion-icon name="close-circle-outline"></ion-icon>
-                                    </button> 
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -88,7 +93,7 @@
                                 <div class="elemento_eliminar">
                                     <button class="elemento_eliminar--btn">
                                         <ion-icon name="close-circle-outline"></ion-icon>
-                                    </button> 
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -100,7 +105,7 @@
                                 <div class="elemento_eliminar">
                                     <button class="elemento_eliminar--btn">
                                         <ion-icon name="close-circle-outline"></ion-icon>
-                                    </button> 
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -108,11 +113,11 @@
                 </div>
             </div>
 
-    <script src="JS/Dato.js"></script> 
-    <script src="JS/Ingreso.js"></script> 
-    <script src="JS/Egreso.js"></script> 
-    <script src="JS/app.js"></script>  
+    <script src="JS/Dato.js"></script>
+    <script src="JS/Ingreso.js"></script>
+    <script src="JS/Egreso.js"></script>
+    <script src="JS/app.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script> 
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

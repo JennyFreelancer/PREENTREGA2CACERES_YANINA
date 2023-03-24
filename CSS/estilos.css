@@ -191,8 +191,14 @@ h2 {
     margin-bottom: 15px;
 }
 
-.ingreso_titulo { color: #28B9B5; }
-.egreso_titulo { color: #FF5049; }
+.ingreso_titulo {
+    display: inline;
+    color: #28B9B5;
+}
+.egreso_titulo {
+    display: inline;
+    color: #FF5049;
+}
 
 .elemento {
     padding: 13px;

@@ -8,7 +8,7 @@ const egresos = [
     new Egreso('Ropa', 400)
 ];
 
-let cargarApp = ()=>{
+const cargarApp = () => {
     cargarCabecero();
     cargarIngresos();
     cargarEgresos();
@@ -48,7 +48,29 @@ const formatoPorcentaje = (valor)=>{
 
 const cargarIngresos = ()=>{
     let ingresosHTML ='';
-    for(let ingreso of ingresos){
+
+    let results = ingresos
+
+    if (filter !== '') {
+        results = results.filter((ingreso) => {
+            return ingreso.descripcion.toLowerCase().includes(filter.toLowerCase())
+        })
+    }
+
+    if (ordenar) {
+        console.log('webview', ordenar)
+        results = results.sort((a,b ) => {
+            if (a.valor > b.valor ) {
+                return 1
+            }
+            if (a.valor < b.valor ) {
+                return -1
+            }
+            return 0
+        })
+    }
+
+    for(let ingreso of results){
         ingresosHTML += crearIngresoHTML(ingreso);
 
     }
@@ -91,7 +113,7 @@ const cargarEgresos = ()=>{
 }
 
 const crearEgresoHTML = (egreso)=>{
-    let egresoHTML = `
+    const egresoHTML = `
 <div class="elemento limpiarEstilos">
 <div class="elemento_descripcion">${egreso.descripcion}</div>
 <div class="derecha limparEstilos">
@@ -115,7 +137,8 @@ const eliminarEgreso= (id)=>{
     cargarEgresos();
 
 }
- let agregarDato = ()=>{
+
+const agregarDato = () => {
     let forma = document.forms['forma'];
     let tipo = forma['tipo'];
     let descripcion = forma['descripcion'];
@@ -135,4 +158,18 @@ const eliminarEgreso= (id)=>{
         }
 
     }
+ }
+
+ var ordenar = false
+var filter = ''
+
+ const filterChange = () => {
+     const value = document.getElementById('filter-ingresos').value
+     filter = value
+     cargarIngresos()
+ }
+
+ const sortIngresos = () => {
+     ordenar = !ordenar
+     cargarIngresos()
  }
